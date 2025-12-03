@@ -249,36 +249,6 @@ Check final CLAUDE.md:
 - [ ] Actionable, not theoretical
 - [ ] **No detailed multi-step procedures (extracted to skills)**
 
-### 9. Generate Report
-
-```
-## CLAUDE.md Refactoring Summary
-
-### Analysis
-- File: [path]
-- Original lines: N
-- Refactored lines: M
-
-### Changes Made
-- [ ] Added constitution block
-- [ ] Updated commands section
-- [ ] Added/updated style guide
-- [ ] Removed redundant content
-- [ ] Extracted detailed procedures to skills
-- [ ] [Other changes]
-
-### Skills Created
-- `[skill-name]`: [purpose]
-
-### Constitution Laws
-1. [Law 1 summary]
-2. [Law 2 summary]
-...
-
-### Recommendations
-- [Any follow-up actions]
-```
-
 ## Constitution Design Guidelines
 
 When creating the constitution, consider:
