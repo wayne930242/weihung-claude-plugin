@@ -13,8 +13,8 @@ Claude Code plugin with tools for plugin development.
 
 ```bash
 # From GitHub
-/plugin marketplace add weihung/weihung-claude-plugin
-/plugin install weihung-claude-plugin@weihung
+/plugin marketplace add wayne930242/weihung-claude-plugin
+/plugin install weihung-claude-plugin@wayne930242
 
 # From local path
 /plugin install /path/to/weihung-claude-plugin
