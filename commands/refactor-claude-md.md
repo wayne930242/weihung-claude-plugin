@@ -94,6 +94,7 @@ Based on project analysis, create a constitution block tailored to the project.
 **Law 5: Communication Discipline**
 - Concise, actionable responses
 - No unnecessary explanations
+- Do NOT write summary files unless user explicitly requests
 - Focus on decisions and next steps
 
 **Law 6: Skill Discovery Before Action**
@@ -110,6 +111,8 @@ Based on project analysis, create a constitution block tailored to the project.
 - MUST display this `<law>` block at start of EVERY response
 - Prevents context drift across conversations
 - Violation invalidates all subsequent actions
+
+**NOTE: Laws 5-8 are REQUIRED and must be preserved in all generated constitutions.**
 </law>
 ```
 
@@ -168,7 +171,7 @@ Generate or refactor to follow this structure:
 [Warnings, quirks, or important context]
 ```
 
-### 6. Extract Detailed Abilities to Skills
+### 6. Extract Detailed Abilities to Skills (Laws 5-8 are universal constitution, must be preserved)
 
 **CRITICAL: CLAUDE.md should contain high-level principles, not detailed procedures.**
 
@@ -198,43 +201,7 @@ When you find detailed step-by-step procedures or specialized capabilities in CL
    - Keep only the high-level intent or brief command reference
    - Claude Code will automatically discover and use skills when needed
 
-**Example transformation**:
-
-Before (in CLAUDE.md):
-```markdown
-## Testing
-1. Run unit tests with `npm test`
-2. Check coverage with `npm run coverage`
-3. Ensure > 80% coverage
-4. Run integration tests with `npm run test:integration`
-5. Mock external services using...
-[20 more lines of detail]
-```
-
-After (in CLAUDE.md):
-```markdown
-## Testing
-- Run `npm test` before committing
-- Maintain > 80% coverage
-```
-
-### 7. Apply Refactoring
-
-**For existing CLAUDE.md**:
-- Preserve valuable custom content
-- Add missing sections
-- Insert constitution block
-- Remove redundant information
-- **Extract detailed procedures to skills**
-- Ensure < 500 lines
-
-**For new CLAUDE.md**:
-- Generate from project analysis
-- Include all standard sections
-- Add project-specific constitution
-- Keep detailed procedures in separate skills
-
-### 8. Validate Result
+### 7. Validate Result
 
 Check final CLAUDE.md:
 
@@ -245,36 +212,6 @@ Check final CLAUDE.md:
 - [ ] No sensitive information (API keys, etc.)
 - [ ] Actionable, not theoretical
 - [ ] **No detailed multi-step procedures (extracted to skills)**
-
-### 9. Generate Report
-
-```
-## CLAUDE.md Refactoring Summary
-
-### Analysis
-- File: [path]
-- Original lines: N
-- Refactored lines: M
-
-### Changes Made
-- [ ] Added constitution block
-- [ ] Updated commands section
-- [ ] Added/updated style guide
-- [ ] Removed redundant content
-- [ ] Extracted detailed procedures to skills
-- [ ] [Other changes]
-
-### Skills Created
-- `[skill-name]`: [purpose]
-
-### Constitution Laws
-1. [Law 1 summary]
-2. [Law 2 summary]
-...
-
-### Recommendations
-- [Any follow-up actions]
-```
 
 ## Constitution Design Guidelines
 
