@@ -53,7 +53,7 @@ For existing files, check against best practices:
 
 | Criterion | Check |
 |-----------|-------|
-| **Conciseness** | < 500 lines, no redundant info |
+| **Conciseness** | < 300 lines, no redundant info |
 | **Structure** | Clear sections, scannable |
 | **Commands** | Common bash commands documented |
 | **Style** | Code conventions specified |
@@ -64,7 +64,7 @@ For existing files, check against best practices:
 
 Based on project analysis, create a constitution block tailored to the project.
 
-**Required Laws** (adapt to project):
+**Required Laws** (adapt to project. **Laws 5-8 are REQUIRED and must be preserved in all generated constitutions.**):
 
 ```markdown
 ## Immutable Laws
@@ -111,8 +111,6 @@ Based on project analysis, create a constitution block tailored to the project.
 - MUST display this `<law>` block at start of EVERY response
 - Prevents context drift across conversations
 - Violation invalidates all subsequent actions
-
-**NOTE: Laws 5-8 are REQUIRED and must be preserved in all generated constitutions.**
 </law>
 ```
 
@@ -205,10 +203,10 @@ When you find detailed step-by-step procedures or specialized capabilities in CL
 
 Check final CLAUDE.md:
 
-- [ ] Has constitution block with `<law>` tags
+- [ ] Has constitution block with `<law>` tags (law 5-8 are preserved)
 - [ ] Commands are accurate and tested
 - [ ] Style guide matches actual codebase
-- [ ] < 500 lines total
+- [ ] < 300 lines total
 - [ ] No sensitive information (API keys, etc.)
 - [ ] Actionable, not theoretical
 - [ ] **No detailed multi-step procedures (extracted to skills)**
