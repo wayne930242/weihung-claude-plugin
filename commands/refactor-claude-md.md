@@ -171,7 +171,7 @@ Generate or refactor to follow this structure:
 [Warnings, quirks, or important context]
 ```
 
-### 6. Extract Detailed Abilities to Skills
+### 6. Extract Detailed Abilities to Skills (Laws 5-8 are universal constitution, must be preserved)
 
 **CRITICAL: CLAUDE.md should contain high-level principles, not detailed procedures.**
 
