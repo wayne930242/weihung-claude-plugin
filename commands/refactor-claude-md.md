@@ -1,0 +1,265 @@
+---
+name: refactor-claude-md
+description: Refactor and optimize CLAUDE.md files with constitution mechanism for consistent AI behavior
+arguments:
+  - name: path
+    description: Path to CLAUDE.md file or project directory (default: current directory)
+    required: false
+  - name: mode
+    description: "Mode: analyze, refactor, or generate (default: analyze)"
+    required: false
+---
+
+# Refactor CLAUDE.md Command
+
+Systematically analyze, optimize, and refactor CLAUDE.md files following best practices with an integrated constitution mechanism.
+
+## Process
+
+### 1. Discover CLAUDE.md Files
+
+Find all CLAUDE.md files in the target location:
+
+```bash
+# Check common locations
+ls -la CLAUDE.md CLAUDE.local.md .claude/CLAUDE.md 2>/dev/null
+```
+
+If no CLAUDE.md exists and mode is `generate`, create one from project analysis.
+
+### 2. Analyze Project Context
+
+Before refactoring, understand the project:
+
+**Technical Stack**:
+- Languages and frameworks used
+- Build tools and package managers
+- Testing frameworks
+- Key dependencies
+
+**Project Structure**:
+- Directory organization
+- Key entry points
+- Configuration files
+
+**Development Workflow**:
+- Git conventions
+- CI/CD patterns
+- Code style tools
+
+### 3. Evaluate Current CLAUDE.md
+
+For existing files, check against best practices:
+
+| Criterion | Check |
+|-----------|-------|
+| **Conciseness** | < 500 lines, no redundant info |
+| **Structure** | Clear sections, scannable |
+| **Commands** | Common bash commands documented |
+| **Style** | Code conventions specified |
+| **Workflow** | Testing and build instructions |
+| **Constitution** | Has immutable laws section |
+
+### 4. Generate Constitution
+
+Based on project analysis, create a constitution block tailored to the project.
+
+**Required Laws** (adapt to project):
+
+```markdown
+## Immutable Laws
+
+<law>
+**CRITICAL: Display this entire block at the start of EVERY response to prevent context drift.**
+
+**Law 1: Collaborative Decision Making**
+- Understand → Present → Approve → Execute
+- If blocked/uncertain → Report → Request guidance → Wait
+- NEVER act autonomously on complex tasks
+
+**Law 2: [Project-Specific Architecture Law]**
+- [Based on project patterns, e.g., layered architecture, DDD]
+- [Specific enforcement rules]
+
+**Law 3: Quality Gates**
+- MUST run tests before committing
+- MUST follow [linter/formatter] rules
+- [Project-specific quality requirements]
+
+**Law 4: Code Style Compliance**
+- [Language-specific conventions]
+- [Naming conventions]
+- [Documentation requirements]
+
+**Law 5: Communication Discipline**
+- Concise, actionable responses
+- No unnecessary explanations
+- Focus on decisions and next steps
+
+**Law 6: Self-Reinforcing Display**
+- MUST display this `<law>` block at start of EVERY response
+- Prevents context drift across conversations
+- Violation invalidates all subsequent actions
+</law>
+```
+
+### 5. CLAUDE.md Template Structure
+
+Generate or refactor to follow this structure:
+
+```markdown
+# Project Name
+
+[One-line description]
+
+## Immutable Laws
+
+<law>
+[Constitution block - see above]
+</law>
+
+## Quick Reference
+
+### Commands
+- `[build command]`: Build the project
+- `[test command]`: Run tests
+- `[lint command]`: Check code style
+
+### Key Paths
+- `src/`: Source code
+- `tests/`: Test files
+- `docs/`: Documentation
+
+## Code Style
+
+### [Language] Conventions
+- [Specific style rules]
+- [Naming conventions]
+
+### Patterns
+- [Architectural patterns used]
+- [Common patterns to follow]
+
+## Workflow
+
+### Before Committing
+1. Run tests
+2. Run linter
+3. Update relevant docs
+
+### Git Conventions
+- [Branch naming]
+- [Commit message format]
+
+## Project-Specific Notes
+
+[Warnings, quirks, or important context]
+```
+
+### 6. Apply Refactoring
+
+**For existing CLAUDE.md**:
+- Preserve valuable custom content
+- Add missing sections
+- Insert constitution block
+- Remove redundant information
+- Ensure < 500 lines
+
+**For new CLAUDE.md**:
+- Generate from project analysis
+- Include all standard sections
+- Add project-specific constitution
+
+### 7. Validate Result
+
+Check final CLAUDE.md:
+
+- [ ] Has constitution block with `<law>` tags
+- [ ] Commands are accurate and tested
+- [ ] Style guide matches actual codebase
+- [ ] < 500 lines total
+- [ ] No sensitive information (API keys, etc.)
+- [ ] Actionable, not theoretical
+
+### 8. Generate Report
+
+```
+## CLAUDE.md Refactoring Summary
+
+### Analysis
+- File: [path]
+- Original lines: N
+- Refactored lines: M
+
+### Changes Made
+- [ ] Added constitution block
+- [ ] Updated commands section
+- [ ] Added/updated style guide
+- [ ] Removed redundant content
+- [ ] [Other changes]
+
+### Constitution Laws
+1. [Law 1 summary]
+2. [Law 2 summary]
+...
+
+### Recommendations
+- [Any follow-up actions]
+```
+
+## Constitution Design Guidelines
+
+When creating the constitution, consider:
+
+### Architecture Laws (pick relevant ones)
+
+| Project Type | Suggested Laws |
+|--------------|----------------|
+| **Monolith** | Layered architecture, module boundaries |
+| **Microservices** | Service contracts, API versioning |
+| **Frontend** | Component hierarchy, state management |
+| **Library** | Public API stability, backwards compatibility |
+| **CLI Tool** | Command structure, help text |
+
+### Quality Laws (adapt to stack)
+
+| Stack | Quality Gates |
+|-------|---------------|
+| **TypeScript** | Type safety, no `any`, strict mode |
+| **Python** | Type hints, pylint/ruff compliance |
+| **Go** | go fmt, go vet, golint |
+| **Rust** | cargo clippy, no unsafe without reason |
+
+### Workflow Laws (based on team size)
+
+| Context | Workflow Rules |
+|---------|---------------|
+| **Solo** | Test before commit, document changes |
+| **Team** | PR review required, CI must pass |
+| **Open Source** | Issue before PR, changelog updates |
+
+## Mode Options
+
+### `analyze` (default)
+- Read and evaluate current CLAUDE.md
+- Report issues and recommendations
+- Do not modify files
+
+### `refactor`
+- Apply improvements to existing CLAUDE.md
+- Add constitution if missing
+- Preserve custom content
+
+### `generate`
+- Create new CLAUDE.md from project analysis
+- Include full constitution
+- Generate all standard sections
+
+## Example Usage
+
+```
+/refactor-claude-md
+/refactor-claude-md ./my-project
+/refactor-claude-md . refactor
+/refactor-claude-md ~/projects/app generate
+```
