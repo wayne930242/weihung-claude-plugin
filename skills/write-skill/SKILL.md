@@ -12,6 +12,7 @@ Create skills that extend Claude's capabilities with specialized knowledge and w
 1. **Concise is key** - Context window is shared; only add what Claude doesn't know
 2. **< 200 lines** - Split to `references/` if approaching limit
 3. **Description triggers** - Include "Use when..." in YAML description, not body
+4. **Scripts for precision** - Create `.py` scripts for tasks requiring exact format or validation
 
 ## Skill Structure
 
