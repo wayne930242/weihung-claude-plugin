@@ -11,14 +11,17 @@ WARNINGS = []
 
 
 def error(msg: str) -> None:
+    """Record an error message."""
     ERRORS.append(f"❌ {msg}")
 
 
 def warn(msg: str) -> None:
+    """Record a warning message."""
     WARNINGS.append(f"⚠️  {msg}")
 
 
 def ok(msg: str) -> None:
+    """Print a success message."""
     print(f"✅ {msg}")
 
 
@@ -34,7 +37,7 @@ def validate_structure(skill_dir: Path) -> None:
         error("SKILL.md not found")
         return
 
-    ok(f"SKILL.md exists")
+    ok("SKILL.md exists")
 
 
 def validate_frontmatter(content: str) -> dict:
@@ -57,28 +60,38 @@ def validate_frontmatter(content: str) -> dict:
             key, value = line.split(":", 1)
             data[key.strip()] = value.strip()
 
-    # Check required fields
-    if "name" not in data:
-        error("Missing required field: name")
-    else:
-        name = data["name"]
-        if not re.match(r'^[a-z0-9-]+$', name):
-            error(f"Invalid name '{name}': must be lowercase with hyphens")
-        else:
-            ok(f"name: {name}")
-
-    if "description" not in data:
-        error("Missing required field: description")
-    else:
-        desc = data["description"]
-        if "use when" not in desc.lower():
-            warn("Description should include 'Use when...' triggers")
-        if len(desc) < 20:
-            warn("Description seems too short")
-        else:
-            ok(f"description: {desc[:50]}...")
+    _validate_name_field(data)
+    _validate_description_field(data)
 
     return data
+
+
+def _validate_name_field(data: dict) -> None:
+    """Validate the name field in frontmatter."""
+    if "name" not in data:
+        error("Missing required field: name")
+        return
+
+    name = data["name"]
+    if not re.match(r'^[a-z0-9-]+$', name):
+        error(f"Invalid name '{name}': must be lowercase with hyphens")
+    else:
+        ok(f"name: {name}")
+
+
+def _validate_description_field(data: dict) -> None:
+    """Validate the description field in frontmatter."""
+    if "description" not in data:
+        error("Missing required field: description")
+        return
+
+    desc = data["description"]
+    if "use when" not in desc.lower():
+        warn("Description should include 'Use when...' triggers")
+    if len(desc) < 20:
+        warn("Description seems too short")
+    else:
+        ok(f"description: {desc[:50]}...")
 
 
 def validate_body(content: str) -> None:
@@ -100,9 +113,6 @@ def validate_body(content: str) -> None:
     body_lower = body.lower()
     if "when to use this skill" in body_lower:
         warn("'When to use' should be in description, not body")
-
-    # Check if skill actually contains these files (not just mentions them)
-    skill_dir_from_content = Path(skill_dir) if 'skill_dir' in dir() else None
 
 
 def validate_skill(skill_dir: Path) -> bool:
@@ -127,15 +137,15 @@ def validate_skill(skill_dir: Path) -> bool:
     if ERRORS:
         print(f"\n❌ Validation failed with {len(ERRORS)} error(s)")
         return False
-    elif WARNINGS:
+    if WARNINGS:
         print(f"\n⚠️  Passed with {len(WARNINGS)} warning(s)")
         return True
-    else:
-        print(f"\n✅ Validation passed")
-        return True
+    print("\n✅ Validation passed")
+    return True
 
 
-def main():
+def main() -> None:
+    """Entry point for skill validation CLI."""
     parser = argparse.ArgumentParser(description="Validate a skill")
     parser.add_argument("path", help="Path to skill directory")
 

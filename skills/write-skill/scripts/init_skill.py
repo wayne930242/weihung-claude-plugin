@@ -2,7 +2,6 @@
 """Initialize a new Claude Code skill with proper structure."""
 
 import argparse
-import os
 from pathlib import Path
 
 SKILL_TEMPLATE = '''---
@@ -62,14 +61,15 @@ def create_skill(name: str, output_path: Path) -> None:
     (skill_dir / "assets" / ".gitkeep").touch()
 
     print(f"Created skill at: {skill_dir}")
-    print(f"\nNext steps:")
+    print("\nNext steps:")
     print(f"  1. Edit {skill_dir}/SKILL.md")
-    print(f"  2. Update the description with 'Use when...'")
-    print(f"  3. Add instructions and references")
+    print("  2. Update the description with 'Use when...'")
+    print("  3. Add instructions and references")
     print(f"  4. Run: python validate_skill.py {skill_dir}")
 
 
-def main():
+def main() -> None:
+    """Entry point for skill initialization CLI."""
     parser = argparse.ArgumentParser(description="Initialize a new skill")
     parser.add_argument("name", help="Skill name (kebab-case)")
     parser.add_argument("--path", "-p", default=".", help="Output directory")
