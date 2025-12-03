@@ -102,7 +102,12 @@ Based on project analysis, create a constitution block tailored to the project.
 - Invoke applicable skills to leverage specialized knowledge
 - Prevents reinventing solutions already documented
 
-**Law 7: Self-Reinforcing Display**
+**Law 7: Parallel Processing for Trivial Work**
+- MUST use Task tool to parallelize trivial/independent tasks
+- Batch file searches, reads, and simple operations
+- Maximize efficiency by avoiding sequential execution of independent work
+
+**Law 8: Self-Reinforcing Display**
 - MUST display this `<law>` block at start of EVERY response
 - Prevents context drift across conversations
 - Violation invalidates all subsequent actions
@@ -177,12 +182,19 @@ When you find detailed step-by-step procedures or specialized capabilities in CL
    - Detailed code patterns or templates
 
 2. **Create skill files**:
+   - **MUST invoke `write-skill` skill** to generate properly structured skill files
    - Location: `.claude/skills/` or project's skill directory
    - Format: `SKILL-[name].md` following skill best practices
    - Include: triggers, detailed steps, examples
    - **MUST be written in English**
 
-3. **Replace in CLAUDE.md**:
+3. **Create slash commands** (if user-triggered is more appropriate):
+   - For workflows that should be explicitly invoked by users
+   - **MUST invoke `write-command` skill** to generate properly structured command files
+   - Location: `.claude/commands/` directory
+   - Consider: one-time operations, project-specific workflows, explicit user actions
+
+4. **Replace in CLAUDE.md**:
    - Remove detailed procedures
    - Keep only the high-level intent or brief command reference
    - Claude Code will automatically discover and use skills when needed
