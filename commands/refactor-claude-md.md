@@ -234,14 +234,6 @@ When creating the constitution, consider:
 | **Go** | go fmt, go vet, golint |
 | **Rust** | cargo clippy, no unsafe without reason |
 
-### Workflow Laws (based on team size)
-
-| Context | Workflow Rules |
-|---------|---------------|
-| **Solo** | Test before commit, document changes |
-| **Team** | PR review required, CI must pass |
-| **Open Source** | Issue before PR, changelog updates |
-
 ## Mode Options
 
 ### `analyze` (default)
